@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Artycles</title>
+</head>
+<body style="background: black;">
+    <center style="margin-top: 25%; margin-left: 5%; margin-right: 5%;" id="mc">
+        <h1 style="color: white; margin: 0;">Do you want to know</h1>
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+    </center>
+    <style type="text/css">
+        button {
+            background: #222;
+            border: 1px solid white;
+            width: 80px;
+            color: white;
+            border-radius: 10px;
+            height: 30px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        video{
+            border:
+1px solid #fff0;
+  margin-top: 10px;
+  border-radius:
+10px;
+  box-shadow: 1px 1px 20px #262626;
+  width: 95%;
+        }
+    </style>
+    <script type="text/javascript">
+        let currentUrl = window.location.href;
+        let urlParts = currentUrl.split('/');
+        let lastPart = urlParts[urlParts.length - 1];
+        let newTitle = lastPart.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+        document.querySelector('h1').textContent = "Do you want to be " + newTitle;
+
+        function playRickroll() {
+            // Clear the h1 and buttons
+            document.getElementById('yesButton').style.display = 'none';
+            document.getElementById('noButton').style.display = 'none';
+
+            // Autoplay Rickroll
+            let video = document.createElement('video');
+            video.src = 'https://github.com/ShatteredDisk/rickroll/raw/refs/heads/master/rickroll.mp4';
+            video.autoplay = true;
+            video.controls = true;
+            let nv = document.createElement('new');
+            nv.textContent = 'Make your own rickroll';
+            document.getElementById('mc').style.marginTop = '5%';
+            document.getElementById('mc').appendChild(video);
+        }
+
+        document.getElementById('yesButton').addEventListener('click', function(){
+            document.querySelector('h1').textContent = `Let this poem guide your passion of becoming ${newTitle}`;
+            playRickroll();
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            // Clear the h1 and buttons
+            document.querySelector('h1').textContent = "That's fine, this is just to rickroll you.";
+            playRickroll();
+        });
+    </script>
+</body>
+</html>
