@@ -39,13 +39,12 @@
 
         function playRickroll() {
             // Clear the h1 and buttons
-            
             document.getElementById('yesButton').style.display = 'none';
             document.getElementById('noButton').style.display = 'none';
 
-            // Autoplay the Rickroll video
+            // Autoplay Rickroll
             let video = document.createElement('video');
-            video.src = 'rickroll.mp4'; // Ensure this file is in the same directory
+            video.src = 'https://github.com/ShatteredDisk/rickroll/raw/refs/heads/master/rickroll.mp4';
             video.autoplay = true;
             video.controls = true;
             document.getElementById('mc').style.marginTop = '5%';
